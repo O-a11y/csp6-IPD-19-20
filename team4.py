@@ -25,6 +25,24 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
-    return 'c'
-
+    '''Strategy 1
+    if their_history[-1] == 'b':
+      return 'b'
+    else:
+      return 'c'
+    '''
+    '''Strategy 2
+    if my_score >= their_score + 500:
+      return 'c'
+    else:
+      return 'b'
+    '''
+    '''Strategy 3
+    recent_betrayal_count = 0
+    for 'b' in their_history[-5:]:
+      recent_betrayal_count += 1
+    if recent_betrayal_count >= 2:
+      return 'b'
+    else:
+      return 'c'
+    '''
