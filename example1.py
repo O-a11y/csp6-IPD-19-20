@@ -6,10 +6,21 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'E1'
-strategy_name = 'Betray'
-strategy_description = 'Always betray.'
-    
+team_name = 'IPD'
+strategy_name = 'Remember Betrayal'
+strategy_description = 'In the beginning of the game, retaliates to betrayal. After five rounds, will only betray if betrayed more than once in the previous five rounds.'
+
+def recent_betrayal_history(their_history):
+  '''Determines if program has been betrayed more than once in the past five rounds. Takes the opponent's history as input and outputs either True or False.'''
+  recent_betrayal_count = 0
+  for i in range(1, 6):
+    if 'b' in their_history[-i]:
+      recent_betrayal_count += 1
+  if recent_betrayal_count >= 2:
+    return True
+  else:
+    return False
+
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
     
@@ -21,5 +32,10 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b' for collude or betray.
     '''
     
-    #This example player always betrays.      
-    return 'b'
+    if len(my_history) <= 5:
+      return 'c'
+    else:
+      if recent_betrayal_history(their_history) == True:
+        return 'b'
+      else:
+        return 'c'

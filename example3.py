@@ -7,10 +7,8 @@
 ####
 
 team_name = 'E3'
-strategy_name = 'Collude but retaliate'
-strategy_description = '''\
-Collude first round. Collude, except in a round after getting 
-a severe punishment.'''
+strategy_name = 'Remember betrayal'
+strategy_description = '''Betray if betrayed more than once in the past five rounds.'''
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.

@@ -7,8 +7,8 @@
 ####
 
 team_name = 'E2'
-strategy_name = 'Alternate'
-strategy_description = 'Collude, then alternate.'
+strategy_name = 'Collude if winning'
+strategy_description = 'If score is at least 500 higher than opponent\'s, collude.'
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
