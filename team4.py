@@ -7,8 +7,8 @@
 ####
 
 team_name = 'IPD' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+strategy_name = 'Remember Betrayal'
+strategy_description = 'Colludes first five rounds. After five rounds, only betrays if betrayed more than once in the past five rounds.'
 
 def recent_betrayal_history(their_history):
   '''Determines if program has been betrayed more than once in the past five rounds. Takes the opponent's history as input and outputs either True or False.'''
@@ -36,6 +36,18 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
+    
+    '''Final Algorithm'''
+    if len(my_history) <= 5:
+      return 'c'
+    else:
+      if recent_betrayal_history(their_history) == True:
+        return 'b'
+      else:
+        return 'c'
+    
+
+
     '''Strategy 1
     if their_history[-1] == 'b':
       return 'b'
@@ -60,12 +72,3 @@ def move(my_history, their_history, my_score, their_score):
       else:
         return 'c'
     '''
-
-    '''Final Algorithm'''
-    if len(my_history) <= 5:
-      return 'c'
-    else:
-      if recent_betrayal_history(their_history) == True:
-        return 'b'
-      else:
-        return 'c'

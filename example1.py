@@ -8,7 +8,7 @@
 
 team_name = 'IPD'
 strategy_name = 'Remember Betrayal'
-strategy_description = 'In the beginning of the game, retaliates to betrayal. After five rounds, will only betray if betrayed more than once in the previous five rounds.'
+strategy_description = 'In the beginning of the game, colludes. After five rounds, will only betray if betrayed more than once in the previous five rounds.'
 
 def recent_betrayal_history(their_history):
   '''Determines if program has been betrayed more than once in the past five rounds. Takes the opponent's history as input and outputs either True or False.'''
